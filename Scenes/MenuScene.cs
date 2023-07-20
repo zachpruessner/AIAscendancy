@@ -7,19 +7,21 @@ namespace AIAscendancy.Scenes;
 
 internal class MenuScene : Component
 {
-    private const int MAX_BUTTONS = 3;
-    private Texture2D[] buttons = new Texture2D[3];
-    private Rectangle[] buttonRectangles = new Rectangle[3];
+    private Texture2D campaignButton;
+    private Vector2 buttonPos1 = new Vector2 (50, Data.ScreenHeight / 5);
+    private Texture2D settingsButton;
+    private Vector2 buttonPos2 = new Vector2 (50, Data.ScreenHeight * 2 / 5);
+    private Texture2D quitButton;
+    private Vector2 buttonPos3 = new Vector2 (50, Data.ScreenHeight * 3 / 5);
+    private Texture2D shuttle;
+    private Vector2 shuttlePos = new Vector2 (Data.ScreenWidth / 2, Data.ScreenHeight  / 2);
 
     internal override void LoadContent(ContentManager Content)
     {
-        const int INCREMENT_VALUE = 175;
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            buttons[i] = Content.Load<Texture2D>($"menuButton{i}");
-
-            buttonRectangles[i] = new Rectangle(0, 125 + (INCREMENT_VALUE * i), buttons[i].Width, buttons[i].Height);
-        }
+        campaignButton = Content.Load<Texture2D>("campaignButton");
+        settingsButton = Content.Load<Texture2D>("settingsButton");
+        quitButton = Content.Load<Texture2D>("quitButton");
+        shuttle = Content.Load<Texture2D>("shuttle");
     }
 
     internal override void Update(GameTime gameTime)
@@ -28,9 +30,9 @@ internal class MenuScene : Component
 
     internal override void Draw(SpriteBatch spriteBatch)
     {
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            spriteBatch.Draw(buttons[i], buttonRectangles[i], Color.White);
-        }
+        spriteBatch.Draw(campaignButton, buttonPos1,  Color.White);
+        spriteBatch.Draw(settingsButton, buttonPos2,  Color.White);
+        spriteBatch.Draw(quitButton, buttonPos3,  Color.White);
+        spriteBatch.Draw(shuttle, shuttlePos, Color.White);
     }
 }
