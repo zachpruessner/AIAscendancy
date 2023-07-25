@@ -37,7 +37,7 @@ public class Game1 : Game
 
     protected override void Update(GameTime gameTime)
     {
-        gameStateManager.Update(gameTime);
+        gameStateManager.Update(gameTime, this);
         base.Update(gameTime);
     }
 
@@ -50,5 +50,10 @@ public class Game1 : Game
         spriteBatch.End();
 
         base.Draw(gameTime);
+    }
+
+    public void Quit()
+    {
+        this.Exit();
     }
 }

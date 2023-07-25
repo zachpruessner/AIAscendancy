@@ -12,7 +12,7 @@ internal class GameScene : Component
     {
     }
 
-    internal override void Update(GameTime gameTime)
+    internal override void Update(GameTime gameTime, Game1 game)
     {
     }
 

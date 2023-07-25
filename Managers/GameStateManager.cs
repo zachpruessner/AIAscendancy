@@ -17,15 +17,15 @@ internal partial class GameStateManager : Component
         gameScene.LoadContent(Content);
     }
 
-    internal override void Update(GameTime gameTime)
+    internal override void Update(GameTime gameTime, Game1 game)
     {
         switch (Data.CurrentState)
         {
             case Data.Scenes.Menu:
-                menuScene.Update(gameTime);
+                menuScene.Update(gameTime, game);
                 break;
             case Data.Scenes.Game:
-                gameScene.Update(gameTime);
+                gameScene.Update(gameTime, game);
                 break;
             case Data.Scenes.Settings:
                 break;
